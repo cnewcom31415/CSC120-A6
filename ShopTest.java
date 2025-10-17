@@ -9,50 +9,78 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+/**
+ * A class for testing ResaleShop and Computer
+ */
 public class ShopTest {
 
+    /**
+     * A unit test that checks if the computer constructor accurately sets the description attribute
+     */
     @Test
     public void testComputerConstructsDescription(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
         assertEquals("comp1",computer.description);
     }
 
+    /**
+     * A unit test that checks if the computer constructor accurately sets the processor type attribute
+     */
     @Test
     public void testComputerConstructsProcessorType(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
         assertEquals("processor",computer.processorType);
     }
 
+    /**
+     * A unit test that checks if the computer constructor accurately sets the hard drive capacity attribute
+     */
     @Test
     public void testComputerConstructsHardDriveCapacity(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
         assertEquals(256,computer.hardDriveCapacity);
     }
 
+
+    /**
+     * A unit test that checks if the computer constructor accurately sets the memory attribute
+     */
     @Test
     public void testComputerConstructsMemory(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
         assertEquals(32,computer.memory);
     }
 
+    /**
+     * A unit test that checks if the computer constructor accurately sets the operating system attribute
+     */
     @Test
     public void testComputerConstructsOS(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
         assertEquals("os",computer.operatingSystem);
     }
 
+    /**
+     * A unit test that checks if the computer constructor accurately sets the year made attribute
+     */
     @Test
     public void testComputerConstructsYearMade(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
         assertEquals(2025,computer.yearMade);
     }
 
+    /**
+     * A unit test that checks if the computer constructor accurately sets the price attribute
+     */
     @Test
     public void testComputerConstructsPrice(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
         assertEquals(1000,computer.price);
     }
 
+    /**
+     * A unit test that checks if the toString method of Computer works correctly
+     */
     @Test
     public void testComputerToString2(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
@@ -62,6 +90,9 @@ public class ShopTest {
         //would be correct.
     }
 
+    /**
+     * A unit test that checks if the setPrice method in Computer correctly sets the price
+     */
     @Test
     public void testComputerSetPrice(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
@@ -69,6 +100,9 @@ public class ShopTest {
         assertEquals("comp1\nprocessor\n256\n16\nos\n2025\n1500",computer.toString());
     }
 
+    /**
+     * A unit test that checks if the setOS method in Computer correctly sets the OS
+     */
     @Test
     public void testComputerSetOS(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
@@ -76,6 +110,9 @@ public class ShopTest {
         assertEquals("comp1\nprocessor\n256\n16\nOS2\n2025\n0",computer.toString());
     }
 
+    /**
+     * A unit test that checks if the getYear method in Computer correctly returns the yearMade attribute
+     */
     @Test
     public void testComputerGetYear(){
         Computer computer = new Computer("comp1","processor", 256, 32,"os",2025,1000);
@@ -83,6 +120,10 @@ public class ShopTest {
     }
 
 
+    /**
+     * A unit test that checks if when there is a case when the buy method in ResaleShop
+     * should throw an exception, properly throws the exception
+     */
     @Test(expected=Exception.class)
     public void testResaleShopBuyException() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -91,6 +132,9 @@ public class ShopTest {
 
     }
     
+    /**
+     * A unit test that checks if the buy method in ResaleShop correctly adds a new Computer to the inventory
+     */
     @Test
     public void testResaleShopBuy() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -104,6 +148,10 @@ public class ShopTest {
 
     }
 
+    /**
+     * A unit test that checks if when there is a case when the sell method in ResaleShop
+     * should throw an exception, properly throws the exception
+     */
     @Test(expected=Exception.class)
     public void testResaleShopSellException() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -122,6 +170,9 @@ public class ShopTest {
 
     }*/
 
+    /**
+     * A unit test that checks if the sell method in ResaleShop correctly removes an item in its inventory
+     */
     @Test
     public void testResaleShopSell2() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -134,6 +185,9 @@ public class ShopTest {
 
     }
 
+    /**
+     * A unit test that checks if the code in this unitTest correctly grabs data from the OutputStream
+     */
     @Test
     public void testPrintInventoryEmptyFormatting() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -153,6 +207,10 @@ public class ShopTest {
         assertEquals("Inventory is empty\r\n" + "",methodOutput);
     }
 
+    /**
+     * A unit test that checks if the printInventory method in ResaleShop prints the correct
+     * statement to the terminal if the inventory is empty.
+     */
     @Test
     public void testPrintInventoryEmpty() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -172,7 +230,10 @@ public class ShopTest {
         assertEquals("Inventory is empty\r\n" + "",methodOutput);
     }
 
-
+    /**
+     * A unit test that checks if the printInventory method in ResaleShop prints the correct
+     * statement to the terminal if the inventory is not empty.
+     */
     @Test
     public void testPrintInventoryItem() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -188,6 +249,10 @@ public class ShopTest {
     }
 
 
+    /**
+     * A unit test that checks if the refurbish method in ResaleShop correctly throws an exception
+     * if the computer is not in the inventory
+     */
     @Test(expected=Exception.class)
     public void testResaleShopRefurbishException() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -197,6 +262,9 @@ public class ShopTest {
 
     }
 
+    /**
+     * A unit test that checks if an old (<2000) computer is refurbished correctly by refurbish
+     */
     @Test
     public void testResaleShopRefurbishOld() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -218,6 +286,9 @@ public class ShopTest {
 
     }*/
 
+    /**
+     * A unit test that checks if a middleaged (<2012) computer is refurbished correctly by refurbish
+     */
     @Test
     public void testResaleShopRefurbishMiddle() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -239,6 +310,9 @@ public class ShopTest {
 
     }*/
 
+    /**
+     * A unit test that checks if a young (<2018) computer is refurbished correctly by refurbish
+     */
     @Test
     public void testResaleShopRefurbishYoung() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -260,6 +334,9 @@ public class ShopTest {
 
     }*/
 
+    /**
+     * A unit test that checks if a futuristic(>2018) computer is refurbished correctly by refurbish
+     */
     @Test
     public void testResaleShopRefurbishFutureistic() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -281,6 +358,9 @@ public class ShopTest {
 
     }*/
 
+    /**
+     * A unit test that checks if the refurbish method in ResaleShop correctly sets a new OS
+     */
     @Test
     public void testResaleShopRefurbishYesOS() throws Exception{
         ResaleShop shop = new ResaleShop();
@@ -292,6 +372,10 @@ public class ShopTest {
 
     }
 
+    /**
+     * A unit test that checks if the ResaleShop constructor correctly constructs an instance of 
+     * the class with the inventory attribute as an empty list.
+     */
     @Test
     public void testResaleShopConstructor() throws Exception{
         ResaleShop shop = new ResaleShop();
